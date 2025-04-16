@@ -96,11 +96,65 @@
                 
                 const pushDates = commits.map(commit => commit.commit.author.date);
 
-                // 创建表格并显示推送日期
-                let tableHTML = '<table border="1"><tr><th>序号</th><th>推送日期</th></tr>';
-                pushDates.forEach((date, index) => {
-                    tableHTML += `<tr><td>${index + 1}</td><td>${new Date(date).toLocaleString()}</td></tr>`;
+                // 定义第一周的起始日期（3月4日）
+                const firstWeekStart = new Date('2025-03-04');
+                
+                // 计算每个提交日期属于哪一周
+                const weeklyCommits = {};
+                pushDates.forEach(date => {
+                    const commitDate = new Date(date);
+                    // 计算与第一周起始日期相差的天数
+                    const diffTime = Math.abs(commitDate - firstWeekStart);
+                    const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+                    // 计算周数（从第1周开始）
+                    const weekNumber = Math.floor(diffDays / 7) + 1;
+                    
+                    // 将提交记录按周进行分组
+                    if (!weeklyCommits[weekNumber]) {
+                        weeklyCommits[weekNumber] = [];
+                    }
+                    weeklyCommits[weekNumber].push(date);
                 });
+                
+                // 创建表格并显示推送日期和作业信息
+                let tableHTML = '<table border="1"><tr><th>提交时间</th><th>平时训练</th></tr>';
+                
+                // 获取当前日期，计算最大周数
+                const currentDate = new Date();
+                const diffTimeToNow = Math.abs(currentDate - firstWeekStart);
+                const diffDaysToNow = Math.floor(diffTimeToNow / (1000 * 60 * 60 * 24));
+                const maxWeeks = Math.floor(diffDaysToNow / 7) + 2; // 加2确保包含当前周
+                
+                // 创建一个数组来存储所有有提交记录的信息
+                const commitInfo = [];
+                
+                // 收集所有有提交记录的信息
+                for (let week = 1; week <= maxWeeks; week++) {
+                    const hasCommits = weeklyCommits[week] && weeklyCommits[week].length > 0;
+                    
+                    if (hasCommits) {
+                        // 如果该周有提交，记录每个提交
+                        weeklyCommits[week].forEach(date => {
+                            commitInfo.push({
+                                date: new Date(date),
+                                week: week
+                            });
+                        });
+                    }
+                }
+                
+                // 按日期排序（从旧到新）
+                commitInfo.sort((a, b) => a.date - b.date);
+                
+                // 生成表格内容，并按提交顺序重新编号
+                commitInfo.forEach((info, index) => {
+                    const homeworkNumber = `第${index + 1}次平时训练`;
+                    tableHTML += `<tr>
+                        <td>${info.date.toLocaleString()}</td>
+                        <td>${homeworkNumber}</td>
+                    </tr>`;
+                });
+                
                 tableHTML += '</table>';
                 document.getElementById('demo').innerHTML = tableHTML;
             } catch (error) {
