@@ -1,0 +1,520 @@
+/* 全局样式 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Microsoft YaHei", "微软雅黑", sans-serif;
+}
+
+body {
+  background-color: #f5f5f5;
+  color: #333;
+  line-height: 1.6;
+}
+
+.main-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1, h2, h3, h4 {
+  margin: 15px 0;
+  color: #d81e06;
+}
+
+h1 {
+  text-align: center;
+  padding: 20px 0;
+  font-size: 2.5em;
+  color: #d81e06;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+p {
+  margin-bottom: 15px;
+}
+
+a {
+  color: #d81e06;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: #ff4d4d;
+  text-decoration: underline;
+}
+
+/* 导航栏样式 */
+nav {
+  background-color: #d81e06;
+  padding: 15px 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  flex-wrap: wrap;
+}
+
+nav li {
+  margin: 0 15px;
+}
+
+nav a {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 1.1em;
+  padding: 5px 10px;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+nav a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  text-decoration: none;
+}
+
+/* 横幅样式 */
+.banner {
+  margin-bottom: 30px;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.banner img {
+  display: block;
+  transition: transform 0.3s;
+}
+
+.banner:hover img {
+  transform: scale(1.02);
+}
+
+/* 视频部分样式 */
+.video-section {
+  margin: 40px 0;
+  text-align: center;
+}
+
+.video-container {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+
+.video-container video {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: none;
+  background-color: #000;
+  /* 增加视频亮度和对比度 */
+  filter: brightness(1.8) contrast(1.2) saturate(1.1);
+}
+
+.video-caption {
+  margin-top: 15px;
+  font-style: italic;
+  color: #666;
+  font-size: 1.1em;
+}
+
+/* 为视频控制条添加样式 */
+video::-webkit-media-controls {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+video::-webkit-media-controls-panel {
+  padding: 5px;
+}
+
+/* 球员卡片样式 */
+.players-intro {
+  margin: 40px 0;
+}
+
+.player-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.player-card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 240px;
+  height: 420px; /* 添加固定高度 */
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+}
+
+.player-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.player-card img {
+  border-radius: 8px;
+  margin-bottom: 15px;
+  width: 100%;
+  height: 200px; /* 统一图片高度 */
+  object-fit: cover;
+  object-position: top; /* 确保头部显示 */
+}
+
+.player-card h3 {
+  color: #d81e06;
+  margin-bottom: 10px;
+  font-size: 1.3em; /* 统一标题大小 */
+}
+
+.player-card p {
+  margin-bottom: 8px;
+  font-size: 0.95em; /* 统一文字大小 */
+  line-height: 1.4;
+}
+
+/* 简介部分样式 */
+.player-card p:last-child {
+  flex-grow: 1;
+  overflow: auto; /* 如果内容过多允许滚动 */
+  margin-top: auto; /* 将简介推到底部 */
+}
+
+/* 表格样式 */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+table td {
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+}
+
+table tr:first-child {
+  background-color: #d81e06;
+  color: white;
+  font-weight: bold;
+}
+
+table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+table tr:hover {
+  background-color: #f5f5f5;
+}
+
+/* 粉丝留言区样式 */
+.fan-messages {
+  margin: 40px 0;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.message-form {
+  margin-bottom: 20px;
+}
+
+.message-form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  resize: vertical;
+  margin-bottom: 10px;
+}
+
+.message-form button, .quiz-submit, form input[type="submit"], .subscribe-form button {
+  background-color: #d81e06;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.message-form button:hover, .quiz-submit:hover, form input[type="submit"]:hover, .subscribe-form button:hover {
+  background-color: #ff4d4d;
+}
+
+.messages {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.message {
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  border-left: 4px solid #d81e06;
+}
+
+.message h4 {
+  margin-bottom: 5px;
+  color: #333;
+}
+
+/* 新闻动态样式 */
+.news-section {
+  margin: 40px 0;
+}
+
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.news-item {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.news-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.news-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.news-item h3 {
+  padding: 15px 15px 5px;
+  font-size: 1.2em;
+}
+
+.news-date {
+  color: #888;
+  font-size: 0.9em;
+  padding: 0 15px;
+}
+
+.news-item p {
+  padding: 0 15px 15px;
+}
+
+.read-more {
+  display: inline-block;
+  margin: 0 15px 15px;
+  font-weight: bold;
+}
+
+/* 赛程表样式 */
+.schedule-section {
+  margin: 40px 0;
+}
+
+.schedule-table table {
+  width: 100%;
+}
+
+/* 问答部分样式 */
+.quiz-section {
+  margin: 40px 0;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.quiz-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.quiz-question {
+  margin-bottom: 15px;
+}
+
+.quiz-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.quiz-options label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.quiz-options input {
+  margin-right: 10px;
+}
+
+.quiz-submit {
+  align-self: flex-start;
+  margin-top: 10px;
+}
+
+/* 搜索表单样式 */
+form {
+  margin: 30px 0;
+  display: flex;
+  gap: 10px;
+}
+
+form input[type="text"], form input[type="email"], .subscribe-form input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+/* 订阅部分样式 */
+.subscribe-section {
+  margin: 40px 0;
+  background-color: #f9f9f9;
+  padding: 30px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.subscribe-form {
+  display: flex;
+  max-width: 500px;
+  margin: 20px auto 0;
+  gap: 10px;
+}
+
+/* 页脚样式 */
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 40px 0 20px;
+  margin-top: 50px;
+  border-radius: 8px 8px 0 0;
+}
+
+.footer-columns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 250px;
+  padding: 0 20px;
+  margin-bottom: 20px;
+}
+
+.footer-column h3 {
+  color: #fff;
+  margin-bottom: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 10px;
+}
+
+.footer-column ul {
+  list-style: none;
+}
+
+.footer-column li {
+  margin-bottom: 8px;
+}
+
+.footer-column a {
+  color: #ccc;
+}
+
+.footer-column a:hover {
+  color: #fff;
+}
+
+.social-links {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.social-links a {
+  color: #ccc;
+  margin: 0 10px;
+}
+
+.social-links a:hover {
+  color: #fff;
+}
+
+footer p {
+  text-align: center;
+  margin-bottom: 10px;
+  color: #aaa;
+  font-size: 0.9em;
+}
+
+/* 响应式调整 */
+@media (max-width: 850px) {
+  .video-container {
+    max-width: 100%;
+  }
+  
+  .player-cards {
+    justify-content: center;
+  }
+  
+  .news-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .footer-columns {
+    flex-direction: column;
+  }
+  
+  .footer-column {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+  
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  nav li {
+    margin: 5px 0;
+  }
+  
+  table {
+    font-size: 0.9em;
+  }
+  
+  .subscribe-form {
+    flex-direction: column;
+  }
+}
